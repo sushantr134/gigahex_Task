@@ -1,0 +1,216 @@
+*,*::after,*::before
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes START
+{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@mixin ReponsiveImage($width,$max_width) {
+    max-width: $max_width;
+    width: $width;
+}
+
+@mixin GridMaker($col,$row,$rowgap,$colgap) {
+      display: grid;
+      grid-template-columns: $col;
+      grid-auto-rows: $row;
+      grid-row-gap: $rowgap;
+      grid-column-gap: $colgap;  
+}
+
+@mixin Align($justify,$align) {
+    display: flex;
+    justify-content:$justify;
+    align-items:$align;
+}
+
+#react-gigahex-app
+{
+    animation: START 2.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1;
+    .testApp
+    {
+        width: 100%;
+        .container
+        {
+           @include GridMaker(1fr 4fr,minmax(200,1fr),0.1em,0.1em);
+           justify-content: center;
+           width: 100%;
+           position: relative;
+           aside
+           {
+            background: #ffffff;
+            box-shadow:-1px 2px 10px 0px #8c8b8b;
+            z-index: 100;
+            box-sizing: border-box;
+           
+             nav
+             {
+                padding: 1em;
+                ul
+                {
+                    list-style: none;
+                    @include Align(center,flex-start);
+                    flex-direction: column;
+
+                    li
+                    {
+                        width: 100%;
+                        @include Align(flex-start,center);
+                        text-align: left;
+                        font-weight: bold;
+                        text-align: left;
+                        img
+                        {
+                            @include ReponsiveImage(30%,20%);
+                        }
+                    }
+                }
+             }
+           }
+           .mainView
+           {
+               width: 100%;
+               height: 100vh;
+               background: #f5f5f5;
+               z-index:10;
+               
+               @include Align(center,center);
+               flex-direction: column;
+               
+               h1
+               {
+                color:#3d3d3d;
+               }
+
+               .AccomodationLists
+               {
+                   padding: 1em;
+                   margin-top: 1em;
+                   width: 50%;
+                   .container
+                   {
+                    @include GridMaker(repeat(2,1fr),none,2em,2em);
+
+                    .Accomodation__card
+                    {
+                        border:0.1em solid lightgray;
+                        box-sizing: border-box;
+                        padding: 2em;
+                        width: 100%;
+                        min-height: 200px;
+                        max-height: 400px;
+                        border-radius: 0.55em;
+                        @include Align(center,center);
+                        flex-direction: column;
+                        cursor: pointer;
+                        position: relative;
+
+                        img
+                        {
+                            @include ReponsiveImage(80%,50%);
+                            max-height: 300px;
+                            cursor: inherit;
+                            
+                        }
+
+                        label
+                        {
+                            margin-top:10%;
+                            font-weight: bold;
+                            color:#969696;
+                            cursor: inherit;
+                        }
+
+                        &::after
+                        {
+                            content: '';
+                            width:25px;
+                            height: 25px;
+                            position: absolute;
+                            top:5%;
+                            right: 5%;
+                            border:inherit;
+                            background: inherit;
+                            border-radius: 100%;
+                        }
+
+                        &#active
+                        {
+                            border:0.1em solid #5444cc;
+                            label
+                            {
+                                color:#5444cc;
+                            }
+
+                            &::after
+                            {
+                                background:#5444cc !important;
+                            }
+                        }
+                    }
+                   }
+
+               }
+
+               .buttons
+               {
+                   padding: 1em;
+                   @include Align(center,center);
+                   width: 100%;
+                   .btn
+                   {
+                       margin-right: 1em;
+                       border:0.1em solid #dfdfdf;
+                       padding: 0.8em;
+                       width: 8em;
+                       border-radius: 0.3em;
+                       box-sizing: border-box;
+                       @include Align(center,center);
+                       label
+                       {
+                           text-align: center;
+                           font-size: 14px;
+                           width: inherit;
+                           color: #929191;
+                           font-weight: bold;
+                           cursor: pointer;
+
+                           &:hover
+                           {
+                               filter: brightness(150%);
+                           }
+                       }
+
+                       &.active
+                       {
+                           background: #5444cc;
+                           border:0.1em solid #5444cc;
+                           
+                           label
+                           {
+                               color: white;
+                               &:hover
+                               {
+                                   filter: brightness(150%);
+                               }
+                           }
+                       }
+                   }
+                   
+               }
+           }
+        }
+    }
+}
