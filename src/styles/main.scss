@@ -177,6 +177,7 @@
                        width: 8em;
                        border-radius: 0.3em;
                        box-sizing: border-box;
+                      
                        @include Align(center,center);
                        label
                        {
@@ -197,7 +198,7 @@
                        {
                            background: #5444cc;
                            border:0.1em solid #5444cc;
-                           
+                           color: #ffffff;
                            label
                            {
                                color: white;

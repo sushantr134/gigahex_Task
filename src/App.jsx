@@ -1,8 +1,8 @@
 import React from 'react'
-import './styles/main.css'
+import './styles/main.scss'
 
 import {SideBar} from './components/sidebar/Sidebar'
-import {MainView} from './components/mainBody/MainView'
+import MainView from './components/mainBody/MainView'
 import logo from '../adhoc-logo.png'
 
 

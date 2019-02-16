@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 export const ButtonView = (props) => (
     <div className="buttons">
-    <div className="btn"><label>Cancel</label></div>
-    <div className="btn active"><label>Next</label></div>
+    <button className="btn" onClick={props.onClickFun} disabled={props.isActiveButton ? true : false} >Cancel</button>
+    <button className="btn active" disabled={props.isActiveButton ? true : false}>Next</button>
     </div>
 )

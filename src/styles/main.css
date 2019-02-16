@@ -254,6 +254,7 @@
 #react-gigahex-app .testApp .container .mainView .buttons .btn.active {
   background: #5444cc;
   border: 0.1em solid #5444cc;
+  color: #ffffff;
 }
 
 #react-gigahex-app .testApp .container .mainView .buttons .btn.active label {

@@ -1,7 +1,7 @@
 import {ACTIVE_SELECT_CHOICE} from '../actions/AllActions'
 
 const initialState = {
-    listItems:{}
+   buttonActive:null
 }
 
 const makeChoiceActive = (state = initialState,action) => {
@@ -11,7 +11,8 @@ const makeChoiceActive = (state = initialState,action) => {
         case ACTIVE_SELECT_CHOICE : 
                       return {
                           ...state,
-                         selectedChoice:action.payload
+                         selectedChoice:action.payload,
+                         buttonActive:true
                       }
         default : 
                   return state;             
